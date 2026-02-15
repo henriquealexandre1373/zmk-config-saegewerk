@@ -139,6 +139,27 @@
                        <&macro_tap &kp U>;
         };
 
+        // ó — Option+E → O
+        ptbr_o_acu: ptbr_o_acu {
+            compatible = "zmk,behavior-macro";
+            label = "PTBR_O_ACU";
+            #binding-cells = <0>;
+            bindings = <&macro_press &kp LALT>,
+                       <&macro_tap &kp E>,
+                       <&macro_release &kp LALT>,
+                       <&macro_tap &kp O>;
+        };
+
+        // Screenshot Mac — CMD + SHIFT + 4
+        mac_screenshot: mac_screenshot {
+            compatible = "zmk,behavior-macro";
+            label = "MAC_SCREENSHOT";
+            #binding-cells = <0>;
+            bindings = <&macro_press &kp LGUI &kp LSHFT>,
+                       <&macro_tap &kp N4>,
+                       <&macro_release &kp LGUI &kp LSHFT>;
+        };
+
     };
 
     // ═══════════════════════════════════════════════════════════════
@@ -255,7 +276,7 @@
             bindings = <
    &kp Q       &kp W       &kp E       &kp R       &kp T                                            &kp Y       &kp U       &kp I       &kp O       &kp P
    &trans      &hm LGUI A  &hm LALT S  &hm LCTRL D &hm LSHFT F &kp G                                &kp H       &hm RSHFT J &hm RCTRL K &hm LALT L  &hm RGUI SEMI &trans
-   &trans      &kp Z       &kp X       &kp C       &kp V       &kp B       &bootloader  &bootloader  &kp N       &kp M       &kp COMMA   &kp DOT     &kp FSLH      &trans
+   &trans      &kp Z       &kp X       &kp C       &kp V       &kp B       &bootloader  &sys_reset   &kp N       &kp M       &kp COMMA   &kp DOT     &kp FSLH      &trans
                            &kp LCTRL   &mo LOWER   &kp SPACE   &trans                               &trans      &kp RET     &mo RAISE   &kp BSPC
             >;
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -319,10 +340,10 @@
         RAISE {
             label = "RAISE";
             bindings = <
-   &kp F1      &kp F2      &kp F3      &kp F4      &kp F5                                           &kp KP_N7   &kp KP_N8   &kp KP_N9   &kp KP_PLUS     &kp KP_MINUS
-   &trans      &kp F6      &kp F7      &kp F8      &kp F9      &kp F10                              &kp KP_N4   &kp KP_N5   &kp KP_N6   &kp KP_MULTIPLY &kp KP_DIVIDE   &trans
-   &trans      &kp LEFT    &kp DOWN    &kp UP      &kp RIGHT   &trans      &kp C_BRI_DN &kp C_BRI_UP &kp KP_N1   &kp KP_N2   &kp KP_N3   &kp KP_DOT      &kp KP_ENTER    &trans
-                           &mo ADJUST  &trans      &trans      &trans                               &trans      &kp KP_N0   &trans      &trans
+   &kp F1      &kp F2      &kp F3      &kp F4      &kp F5                                           &kp N7   &kp N8   &kp N9   &kp PLUS     &kp MINUS
+   &trans      &kp F6      &kp F7      &kp F8      &kp F9      &kp F10                              &kp N4   &kp N5   &kp N6   &kp STAR &kp FSLH   &trans
+   &trans      &kp LEFT    &kp DOWN    &kp UP      &kp RIGHT   &trans      &kp C_BRI_DN &kp C_BRI_UP &kp N1   &kp N2   &kp N3   &kp DOT      &kp RET    &trans
+                           &mo ADJUST  &trans      &trans      &trans                               &trans      &kp N0   &trans      &trans
             >;
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
@@ -352,8 +373,8 @@
         ADJUST {
             label = "ADJUST";
             bindings = <
-   &sys_reset  &trans      &trans      &trans      &trans                                       &ptbr_a_til &ptbr_o_til &ptbr_cced  &ptbr_e_acu &ptbr_a_acu
-   &trans      &trans      &trans      &trans      &trans      &trans                           &ptbr_e_cir &ptbr_o_cir &ptbr_a_gra &ptbr_u_acu &trans      &trans
+   &sys_reset  &mac_screenshot &trans      &trans      &trans                                       &ptbr_a_til &ptbr_o_til &ptbr_cced  &ptbr_e_acu &ptbr_a_acu
+   &trans      &trans      &trans      &trans      &trans      &trans                           &ptbr_e_cir &ptbr_o_cir &ptbr_a_gra &ptbr_u_acu &ptbr_o_acu &trans
    &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans   &trans      &trans      &trans      &trans      &trans      &sys_reset
                            &trans      &trans      &trans      &trans                           &trans      &trans      &trans      &trans
             >;
